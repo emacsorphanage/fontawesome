@@ -16,7 +16,8 @@ This function is interactive function, so you can call it by `M-x fontawesome`.
 ## Sample
 
 ```lisp
-(insert (fontawesome "github"))
+(insert (propertize (fontawesome "github")
+        'face '(:family "FontAwesome" :foreground "yellow")))
 
 (defun insert-fontawesome ()
   (interactive)
