@@ -1,4 +1,4 @@
-data: fontawesome-data.el
+.PHONY: data
 
-fontawesome-data.el:
-	ruby author/getfontinfo.rb > $@
+data:
+	ruby author/getfontinfo.rb > fontawesome-data.el
