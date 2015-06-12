@@ -30,7 +30,7 @@ template =<<EOS
 (defvar fontawesome-alist
 '(
 <% fonts.each do |font| %>
-("<%= font[:name] %>" . "<%= font[:code] %>") <% end %>
+("<%= font[:name] %>" . "<%= font[:code] %>")<% end %>
 ))
 
 (provide 'fontawesome-data)
