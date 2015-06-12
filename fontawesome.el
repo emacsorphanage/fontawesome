@@ -42,6 +42,29 @@
    (list (fontawesome--completing-read)))
   (assoc-default font-name fontawesome-alist))
 
+(defun fontawesome--propertize (glyph)
+  (propertize glyph
+              'face '(:family "FontAwesome" :height 1.5)))
+
+(defun fontawesome---source (fontawesome-alist)
+  "return a source for helm selection"
+  `((name . "Select FontAwesome Icon: ")
+    (candidates . ,(mapcar (lambda (fontawesome)
+                             (cons (concat (car fontawesome)
+                                           " -> "
+                                           (fontawesome--propertize
+                                            (cdr fontawesome)))
+                                   (cdr fontawesome)))
+                           fontawesome-alist))
+    (action . (lambda (candidate)
+                (insert (fontawesome--propertize
+                         candidate))))))
+
+;;;###autoload
+(defun helm-fontawesome ()
+  (interactive)
+  (helm :sources (fontawesome---source fontawesome-alist)))
+
 (provide 'fontawesome)
 
 ;;; fontawesome.el ends here
