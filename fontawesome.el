@@ -5,7 +5,7 @@
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-fontawesome
 ;; Version: 0.01
-;; Package-Requires: ((cl-lib "0.5"))
+;; Package-Requires: ((helm "1.7.2") (cl-lib "0.5"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -41,6 +41,29 @@
   (interactive
    (list (fontawesome--completing-read)))
   (assoc-default font-name fontawesome-alist))
+
+(defun fontawesome--propertize (glyph)
+  (propertize glyph
+              'face '(:family "FontAwesome" :height 1.5)))
+
+(defun fontawesome---source (fontawesome-alist)
+  "return a source for helm selection"
+  `((name . "Select FontAwesome Icon: ")
+    (candidates . ,(mapcar (lambda (fontawesome)
+                             (cons (concat (car fontawesome)
+                                           " -> "
+                                           (fontawesome--propertize
+                                            (cdr fontawesome)))
+                                   (cdr fontawesome)))
+                           fontawesome-alist))
+    (action . (lambda (candidate)
+                (insert (fontawesome--propertize
+                         candidate))))))
+
+;;;###autoload
+(defun helm-fontawesome ()
+  (interactive)
+  (helm :sources (fontawesome---source fontawesome-alist)))
 
 (provide 'fontawesome)
 
