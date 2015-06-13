@@ -1,4 +1,7 @@
 Revision history for fontawesome.el
 
+Revision 0.02 2015/06/13 syohex
+    - Add helm interface(Thanks Diego Berrocal)
+
 Revision 0.01 2015/06/12 syohex
     - Initial Release
