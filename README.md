@@ -13,6 +13,11 @@ Emacs [fontawesome](http://fortawesome.github.io/Font-Awesome/) utility.
 Return code point of `font-name`.
 This function is interactive function, so you can call it by `M-x fontawesome`.
 
+#### `M-x helm-fontawesome`
+
+Insert fontawesome font with helm interface
+
+
 ## Sample
 
 ```lisp
