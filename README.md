@@ -17,6 +17,8 @@ This function is interactive function, so you can call it by `M-x fontawesome`.
 
 Insert fontawesome font with helm interface
 
+![helm-fontawesome](image/helm-fontawesome.png)
+
 
 ## Sample
 
