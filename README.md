@@ -29,7 +29,7 @@ Insert fontawesome font with helm interface
   (insert (call-interactively 'fontawesome)))
 ```
 
-[melpa-link]: http://melpa.org/#/emacs-fontawesome
-[melpa-stable-link]: http://stable.melpa.org/#/emacs-fontawesome
-[melpa-badge]: http://melpa.org/packages/emacs-fontawesome-badge.svg
-[melpa-stable-badge]: http://stable.melpa.org/packages/emacs-fontawesome-badge.svg
+[melpa-link]: http://melpa.org/#/fontawesome
+[melpa-stable-link]: http://stable.melpa.org/#/fontawesome
+[melpa-badge]: http://melpa.org/packages/fontawesome-badge.svg
+[melpa-stable-badge]: http://stable.melpa.org/packages/fontawesome-badge.svg
