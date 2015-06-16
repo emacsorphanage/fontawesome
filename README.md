@@ -4,7 +4,7 @@ Emacs [fontawesome](http://fortawesome.github.io/Font-Awesome/) utility.
 
 ## Requirements
 
-- fontawesome font
+- fontawesome font(Download from [here](http://fortawesome.github.io/Font-Awesome/)
 
 ## Function
 
