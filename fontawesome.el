@@ -27,6 +27,8 @@
 (require 'cl-lib)
 (require 'fontawesome-data)
 
+(declare-function helm "helm")
+
 (defsubst fontawesome--font-names ()
   (cl-loop for (name . _code) in fontawesome-alist
            collect name))
