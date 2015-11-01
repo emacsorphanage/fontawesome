@@ -5,7 +5,7 @@
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-fontawesome
 ;; Version: 0.02
-;; Package-Requires: ((helm "1.7.2") (cl-lib "0.5"))
+;; Package-Requires: ((helm-core "1.7.7") (cl-lib "0.5"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@
 
 (require 'cl-lib)
 (require 'fontawesome-data)
+(require 'helm)
 
 (declare-function helm "helm")
 
@@ -51,18 +52,17 @@
               'face '(:family "FontAwesome" :height 1.5)))
 
 (defun fontawesome---source (fontawesome-alist)
-  "return a source for helm selection"
-  `((name . "Select FontAwesome Icon: ")
-    (candidates . ,(mapcar (lambda (fontawesome)
-                             (cons (concat (car fontawesome)
-                                           " -> "
-                                           (fontawesome--propertize
-                                            (cdr fontawesome)))
-                                   (cdr fontawesome)))
-                           fontawesome-alist))
-    (action . (lambda (candidate)
-                (insert (fontawesome--propertize
-                         candidate))))))
+  (helm-build-sync-source "Select FontAwesome Icon: "
+    :candidates (mapcar (lambda (fontawesome)
+                          (cons (concat (car fontawesome)
+                                        " -> "
+                                        (fontawesome--propertize
+                                         (cdr fontawesome)))
+                                (cdr fontawesome)))
+                        fontawesome-alist)
+    :action (lambda (candidate)
+              (insert (fontawesome--propertize candidate)))
+    :candidate-number-limit 9999))
 
 ;;;###autoload
 (defun helm-fontawesome ()
