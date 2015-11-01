@@ -13,12 +13,14 @@ doc.css('div.row > div').each do |e|
     t.text? && !t.text.strip.empty?
   end
 
-  abort "Error: Found multiple font name" unless font_name_nodes.length == 1
+  next unless font_name_nodes.length == 1
 
   font_name = font_name_nodes.first.text.strip
   abort "Error: Invalid font name '#{font_name}'" unless font_name =~ /\Afa-/
 
-  entity = e.css('span.muted').first.text
+  muted = e.css('span.text-muted')
+  entity = muted[0].text
+  entity = muted[1].text if entity =~ /\(alias\)/
   if entity =~ /\A\[&#([^;]+);\]\z/
     code = "\\" + Regexp.last_match[1]
     fonts << { name: font_name.sub!(/\Afa-/, ""), code: code }
