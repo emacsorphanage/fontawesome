@@ -6,6 +6,15 @@ Emacs [fontawesome](http://fortawesome.github.io/Font-Awesome/) utility.
 
 - fontawesome font(Download from [here](http://fortawesome.github.io/Font-Awesome/))
 
+## Installation
+
+`fontawesome` is available on [MELPA](https://melpa.org/) and [MELPA stable](https://stable.melpa.org/)
+
+You can install `fontawesome` with the following command.
+
+<kbd>M-x package-install [RET] fontawesome [RET]</kbd>
+
+
 ## Function
 
 #### `(fontawesome font-name)`
@@ -31,7 +40,7 @@ Insert fontawesome font with helm interface
   (insert (call-interactively 'fontawesome)))
 ```
 
-[melpa-link]: http://melpa.org/#/fontawesome
-[melpa-stable-link]: http://stable.melpa.org/#/fontawesome
-[melpa-badge]: http://melpa.org/packages/fontawesome-badge.svg
-[melpa-stable-badge]: http://stable.melpa.org/packages/fontawesome-badge.svg
+[melpa-link]: https://melpa.org/#/fontawesome
+[melpa-stable-link]: https://stable.melpa.org/#/fontawesome
+[melpa-badge]: https://melpa.org/packages/fontawesome-badge.svg
+[melpa-stable-badge]: https://stable.melpa.org/packages/fontawesome-badge.svg

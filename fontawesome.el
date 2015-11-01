@@ -22,6 +22,8 @@
 
 ;;; Commentary:
 
+;; fontawesome.el provides fontawesome(https://fortawesome.github.io/Font-Awesome/) utilities.
+
 ;;; Code:
 
 (require 'cl-lib)
