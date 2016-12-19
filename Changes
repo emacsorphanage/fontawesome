@@ -1,5 +1,8 @@
 Revision history for fontawesome.el
 
+Revision 0.04 2016/12/19 syohex
+    - Update fontawesome version
+
 Revision 0.03 2015/11/01 syohex
     - Update for newer helm
     - Update font list
