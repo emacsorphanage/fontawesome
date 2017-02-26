@@ -1,11 +1,11 @@
 ;;; fontawesome.el --- fontawesome utility
 
-;; Copyright (C) 2016 by Syohei YOSHIDA
+;; Copyright (C) 2017 by Syohei YOSHIDA
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-fontawesome
 ;; Version: 0.04
-;; Package-Requires: ((helm-core "1.7.7") (emacs "24.4"))
+;; Package-Requires: ((emacs "24.4"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -28,9 +28,10 @@
 
 (require 'cl-lib)
 (require 'fontawesome-data)
-(require 'helm)
 
 (declare-function helm "helm")
+(declare-function helm-build-sync-source "helm")
+(declare-function ivy-read "ivy")
 
 (defsubst fontawesome--font-names ()
   (cl-loop for (name . _code) in fontawesome-alist
@@ -51,15 +52,18 @@
   (propertize glyph
               'face '(:family "FontAwesome" :height 1.5)))
 
+(defun fontawesome--construct-candidates ()
+  (mapcar (lambda (fontawesome)
+            (cons (concat (car fontawesome)
+                          " -> "
+                          (fontawesome--propertize
+                           (cdr fontawesome)))
+                  (cdr fontawesome)))
+          fontawesome-alist))
+
 (defun fontawesome---source (fontawesome-alist)
   (helm-build-sync-source "Select FontAwesome Icon: "
-    :candidates (mapcar (lambda (fontawesome)
-                          (cons (concat (car fontawesome)
-                                        " -> "
-                                        (fontawesome--propertize
-                                         (cdr fontawesome)))
-                                (cdr fontawesome)))
-                        fontawesome-alist)
+    :candidates (fontawesome--construct-candidates)
     :action (lambda (candidate)
               (insert (fontawesome--propertize candidate)))
     :candidate-number-limit 9999))
@@ -67,7 +71,16 @@
 ;;;###autoload
 (defun helm-fontawesome ()
   (interactive)
+  (require 'helm)
   (helm :sources (fontawesome---source fontawesome-alist)))
+
+;;;###autoload
+(defun counsel-fontawesome ()
+  (interactive)
+  (require 'ivy)
+  (ivy-read "Fond awesome> " (fontawesome--construct-candidates)
+            :action (lambda (font)
+                      (insert (cdr font)))))
 
 (provide 'fontawesome)
 
