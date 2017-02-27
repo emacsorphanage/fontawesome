@@ -28,6 +28,9 @@ Insert fontawesome font with helm interface
 
 ![helm-fontawesome](image/helm-fontawesome.png)
 
+#### `M-x counsel-fontawesome`
+
+Insert fontawesome font with ivy interface
 
 ## Sample
 
