@@ -78,7 +78,7 @@
 (defun counsel-fontawesome ()
   (interactive)
   (require 'ivy)
-  (ivy-read "Fond awesome> " (fontawesome--construct-candidates)
+  (ivy-read "Font awesome> " (fontawesome--construct-candidates)
             :action (lambda (font)
                       (insert (cdr font)))))
 
