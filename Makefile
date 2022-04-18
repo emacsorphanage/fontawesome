@@ -5,29 +5,25 @@ EASK ?= eask
 
 TEST-FILES := $(shell ls test/fontawesome-*.el)
 
-.PHONY: data clean checkdoc lint install compile unix-test
+.PHONY: clean checkdoc lint package install compile test
 
-data:
-	ruby author/getfontinfo.rb > fontawesome-data.el
+ci: clean package install compile test
 
-ci: clean install compile
-
-clean:
-	@echo "Cleaning..."
-	$(EASK) clean-all
+package:
+	@echo "Packaging..."
+	$(EASK) package
 
 install:
 	@echo "Installing..."
-	$(EASK) install
+	$(EASK) install --dev
 
 compile:
 	@echo "Compiling..."
 	$(EASK) compile
 
-lint:
-	@echo "Linting..."
-	$(EASK) lint
-
-unix-test:
+test:
 	@echo "Testing..."
 	$(EASK) exec ert-runner -L . $(LOAD-TEST-FILES) -t '!no-win' -t '!org'
+
+clean:
+	rm -rf .eask *.elc
