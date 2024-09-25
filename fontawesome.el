@@ -1,8 +1,10 @@
 ;;; fontawesome.el --- fontawesome utility
 
 ;; Copyright (C) 2017 by Syohei YOSHIDA
+;; Copyright (C) 2020-2024 Shen, Jen-Chieh
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
+;; Maintainer: Jen-Chieh Shen <jcs090218@gmail.com>
 ;; URL: https://github.com/syohex/emacs-fontawesome
 ;; Version: 0.04
 ;; Package-Requires: ((emacs "24.4"))
