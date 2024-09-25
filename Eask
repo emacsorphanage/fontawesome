@@ -4,7 +4,7 @@
 
 (package-file "fontawesome.el")
 
-(website-url "https://github.com/syohex/emacs-fontawesome")
+(website-url "https://github.com/emacsorphanage/fontawesome")
 (keywords "")
 
 (script "test" "echo \"Error: no test specified\" && exit 1")
