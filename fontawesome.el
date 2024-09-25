@@ -5,7 +5,7 @@
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; Maintainer: Jen-Chieh Shen <jcs090218@gmail.com>
-;; URL: https://github.com/syohex/emacs-fontawesome
+;; URL: https://github.com/emacsorphanage/fontawesome
 ;; Version: 0.04
 ;; Package-Requires: ((emacs "24.4"))
 
