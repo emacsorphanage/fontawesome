@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "fontawesome"
          "0.04"
          "fontawesome utility")
